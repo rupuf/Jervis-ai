@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #0b0f19;
+    color: #e2e8f0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.system-panel {
+    background-color: #1a202c;
+    border-right: 1px solid #2d3748;
+    padding: 1.5rem;
+    width: 300px;
+    max-width: 30%;
+    display: none; /* Hide on mobile by default */
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .system-panel {
+        display: flex;
+    }
+}
+
+.main-panel {
+    background-color: #0b0f19;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+}
+
+.info-card {
+    background-color: #1a202c;
+    border: 1px solid #2d3748;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ai-visual {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ai-visual .core {
+    width: 50px;
+    height: 50px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #3b82f6, 0 0 30px #3b82f6, 0 0 45px #3b82f6;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.ai-visual .ring {
+    position: absolute;
+    border: 1px solid #3b82f6;
+    border-radius: 50%;
+    opacity: 0;
+    animation: expand 4s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ring:nth-child(2) { animation-delay: 0.5s; }
+.ring:nth-child(3) { animation-delay: 1s; }
+.ring:nth-child(4) { animation-delay: 1.5s; }
+.ring:nth-child(5) { animation-delay: 2s; }
+.ring:nth-child(6) { animation-delay: 2.5s; }
+.ring:nth-child(7) { animation-delay: 3s; }
+.ring:nth-child(8) { animation-delay: 3.5s; }
+.ring:nth-child(9) { animation-delay: 4s; }
+.ring:nth-child(10) { animation-delay: 4.5s; }
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.chat-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    display: none;
+    flex-direction: column;
+    border: 1px solid #2d3748;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .chat-container {
+        width: 80%;
+        height: 80%;
+    }
+}
